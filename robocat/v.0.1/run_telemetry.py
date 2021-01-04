@@ -17,26 +17,26 @@ index = count()
 
 
 def animate(i):
-    data = pd.read_csv('telemetry/data.csv')
-    x = data['t']
-    y1 = data['roll']
-    y2 = data['pitch']
-    xlim = x.values[-1]
-    
-    plt.clf()
-    plt.subplot(121)
-    plt.plot(x, y1, label='roll')
-    plt.xlim(xlim-30,xlim)
-    plt.title('Body orientation.')
-    plt.legend(loc='upper left')
-    
-    plt.subplot(122)
-    plt.plot(x, y2, label='pitch')
-    plt.xlim(xlim-30,xlim)
-    plt.title('Body orientation.')
-    plt.legend(loc='upper left')
-    
-    plt.tight_layout()
+	data = pd.read_csv('telemetry/data.csv')
+	x = data['t']
+	y1 = data['roll']
+	y2 = data['pitch']
+	xlim = x.values[-1]
+
+	plt.clf()
+	plt.subplot(121)
+	plt.plot(x, y1, label='roll')
+	plt.xlim(xlim-30,xlim)
+	plt.title('Body orientation.')
+	plt.legend(loc='upper left')
+
+	plt.subplot(122)
+	plt.plot(x, y2, label='pitch')
+	plt.xlim(xlim-30,xlim)
+	plt.title('Body orientation.')
+	plt.legend(loc='upper left')
+
+	plt.tight_layout()
     
 
 ani1 = FuncAnimation(plt.gcf(), animate, interval=25)

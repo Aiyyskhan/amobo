@@ -6,7 +6,6 @@ Created on Sat Jul  4 14:51:58 2020
 @author: miguel-asd
 """
 
-
 import numpy as np
 import time
 
@@ -33,15 +32,14 @@ FR_angles = np.array([0 , 0 , -np.pi/2])#FR
 loopTime = 0.
 interval = 0.040
 while True:
-    if (time.time()-loopTime >= interval):
-#         print(time.time() - loopTime)
-        loopTime = time.time() 
-         
-         
-        commandPose , commandOrn , V , angle , Wrot , T , compliantMode = joystick.read()
+	if (time.time()-loopTime >= interval):
+		# print(time.time() - loopTime)
+		loopTime = time.time() 
+			
+		commandPose, commandOrn, V, angle, Wrot, T, compliantMode = joystick.read()
 
-        arduinoLoopTime , Xacc , Yacc , realRoll , realPitch = arduino.serialRecive()#recive serial message
-        
-        pulsesCommand = angleToPulse.convert(FR_angles, FL_angles, BR_angles, BL_angles)
-            
-        arduino.serialSend(pulsesCommand)#send serial command to arduino
+		arduinoLoopTime, Xacc, Yacc, realRoll, realPitch = arduino.serialRecive() # recive serial message
+
+		pulsesCommand = angleToPulse.convert(FR_angles, FL_angles, BR_angles, BL_angles)
+			
+		arduino.serialSend(pulsesCommand) # send serial command to arduino
