@@ -54,23 +54,33 @@ def checkdomain(D):
 # 	return angles
 
 def leg_R(coord, coxa_l, femur_l, tibia_l): 
-	D = (coord[1]**2+(-coord[2])**2-coxa**2+(-coord[0])**2-femur**2-tibia**2)/(2*tibia*femur)  #siempre <1
-	D = checkdomain(D)
-	gamma = numpy.arctan2(-numpy.sqrt(1-D**2),D)
-	tetta = -numpy.arctan2(coord[2],coord[1])-numpy.arctan2(numpy.sqrt(coord[1]**2+(-coord[2])**2-coxa**2),-coxa)
-	alpha = numpy.arctan2(-coord[0],numpy.sqrt(coord[1]**2+(-coord[2])**2-coxa**2))-numpy.arctan2(tibia*numpy.sin(gamma),femur+tibia*numpy.cos(gamma))
-	angles = numpy.array([-tetta, alpha, gamma])
+	
+	L = numpy.sqrt(coord[0]**2 + coord[1]**2 + coord[2]**2)
+
+	alpha_1 = numpy.arcsin(coord[0]/L)
+	alpha_2 = numpy.arccos((L**2 + femur_l**2 - tibia_l**2)/(2*L*femur_l))
+	alpha = alpha_1-alpha_2
+
+	beta = numpy.arccos((femur_l**2 + tibia_l**2 - L**2)/(2*femur_l*tibia_l))
+
+	gamma = numpy.arctan(coord[1]/coord[2])
+	
+	angles = numpy.array([alpha, beta, gamma])
+
 	return angles
 
 def leg_L(coord, coxa_l, femur_l, tibia_l):
-	D = (coord[1]**2+(-coord[2])**2-coxa**2+(-coord[0])**2-femur**2-tibia**2)/(2*tibia*femur)  #siempre <1
-	D = checkdomain(D)
-	gamma = numpy.arctan2(-numpy.sqrt(1-D**2),D)
-	tetta = -numpy.arctan2(coord[2],coord[1])-numpy.arctan2(numpy.sqrt(coord[1]**2+(-coord[2])**2-coxa**2),coxa)
-	alpha = numpy.arctan2(-coord[0],numpy.sqrt(coord[1]**2+(-coord[2])**2-coxa**2))-numpy.arctan2(tibia*numpy.sin(gamma),femur+tibia*numpy.cos(gamma))
 	
+	L = numpy.sqrt(coord[0]**2 + coord[1]**2 + coord[2]**2)
 
+	alpha_1 = numpy.arcsin(coord[0]/L)
+	alpha_2 = numpy.arccos((L**2 + femur_l**2 - tibia_l**2)/(2*L*femur_l))
+	alpha = -alpha_1-alpha_2
+
+	beta = numpy.PI - numpy.arccos((femur_l**2 + tibia_l**2 - L**2)/(2*femur_l*tibia_l))
+
+	gamma = numpy.arctan(coord[1]/coord[2])
 	
-	angles = numpy.array([-tetta, alpha, gamma])
+	angles = numpy.array([alpha, beta, gamma])
+
 	return angles
-
