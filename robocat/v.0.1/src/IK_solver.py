@@ -4,6 +4,7 @@
 Created on Thu Feb 20 18:20:45 2020
 
 @author: miguel-asd
+modified on Jan 07 2021 by aiyyskhan
 """
 import numpy
 
@@ -34,7 +35,25 @@ def checkdomain(D):
 """
 #IK equations now written in pybullet frame.
 
-def solve_R(coord , coxa , femur , tibia): 
+# def solve_R(coord , coxa , femur , tibia): 
+# 	D = (coord[1]**2+(-coord[2])**2-coxa**2+(-coord[0])**2-femur**2-tibia**2)/(2*tibia*femur)  #siempre <1
+# 	D = checkdomain(D)
+# 	gamma = numpy.arctan2(-numpy.sqrt(1-D**2),D)
+# 	tetta = -numpy.arctan2(coord[2],coord[1])-numpy.arctan2(numpy.sqrt(coord[1]**2+(-coord[2])**2-coxa**2),-coxa)
+# 	alpha = numpy.arctan2(-coord[0],numpy.sqrt(coord[1]**2+(-coord[2])**2-coxa**2))-numpy.arctan2(tibia*numpy.sin(gamma),femur+tibia*numpy.cos(gamma))
+# 	angles = numpy.array([-tetta, alpha, gamma])
+# 	return angles
+
+# def solve_L(coord , coxa , femur , tibia):
+# 	D = (coord[1]**2+(-coord[2])**2-coxa**2+(-coord[0])**2-femur**2-tibia**2)/(2*tibia*femur)  #siempre <1
+# 	D = checkdomain(D)
+# 	gamma = numpy.arctan2(-numpy.sqrt(1-D**2),D)
+# 	tetta = -numpy.arctan2(coord[2],coord[1])-numpy.arctan2(numpy.sqrt(coord[1]**2+(-coord[2])**2-coxa**2),coxa)
+# 	alpha = numpy.arctan2(-coord[0],numpy.sqrt(coord[1]**2+(-coord[2])**2-coxa**2))-numpy.arctan2(tibia*numpy.sin(gamma),femur+tibia*numpy.cos(gamma))
+# 	angles = numpy.array([-tetta, alpha, gamma])
+# 	return angles
+
+def leg_R(coord, coxa_l, femur_l, tibia_l): 
 	D = (coord[1]**2+(-coord[2])**2-coxa**2+(-coord[0])**2-femur**2-tibia**2)/(2*tibia*femur)  #siempre <1
 	D = checkdomain(D)
 	gamma = numpy.arctan2(-numpy.sqrt(1-D**2),D)
@@ -43,12 +62,15 @@ def solve_R(coord , coxa , femur , tibia):
 	angles = numpy.array([-tetta, alpha, gamma])
 	return angles
 
-def solve_L(coord , coxa , femur , tibia):
+def leg_L(coord, coxa_l, femur_l, tibia_l):
 	D = (coord[1]**2+(-coord[2])**2-coxa**2+(-coord[0])**2-femur**2-tibia**2)/(2*tibia*femur)  #siempre <1
 	D = checkdomain(D)
 	gamma = numpy.arctan2(-numpy.sqrt(1-D**2),D)
 	tetta = -numpy.arctan2(coord[2],coord[1])-numpy.arctan2(numpy.sqrt(coord[1]**2+(-coord[2])**2-coxa**2),coxa)
 	alpha = numpy.arctan2(-coord[0],numpy.sqrt(coord[1]**2+(-coord[2])**2-coxa**2))-numpy.arctan2(tibia*numpy.sin(gamma),femur+tibia*numpy.cos(gamma))
+	
+	
+	
 	angles = numpy.array([-tetta, alpha, gamma])
 	return angles
 
