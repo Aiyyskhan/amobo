@@ -4,7 +4,7 @@
 Created on Thu Feb 20 18:20:45 2020
 
 @author: miguel-asd
-modified on Jan 07 2021 by aiyyskhan
+modified on Jan 07 2021 by Aiyyskhan
 """
 import numpy
 
@@ -69,7 +69,7 @@ def leg_L(coord, coxa_l, femur_l, tibia_l):
 	tetta = -numpy.arctan2(coord[2],coord[1])-numpy.arctan2(numpy.sqrt(coord[1]**2+(-coord[2])**2-coxa**2),coxa)
 	alpha = numpy.arctan2(-coord[0],numpy.sqrt(coord[1]**2+(-coord[2])**2-coxa**2))-numpy.arctan2(tibia*numpy.sin(gamma),femur+tibia*numpy.cos(gamma))
 	
-	
+
 	
 	angles = numpy.array([-tetta, alpha, gamma])
 	return angles
