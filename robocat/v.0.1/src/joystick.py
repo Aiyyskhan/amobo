@@ -39,29 +39,29 @@ class Joystick:
 				#  print(event)
 				if event.type == ecodes.EV_KEY:
 					if event.value == 1:
-						if event.code == 544:#up arrow
+						if event.code == 307:#up arrow - Y
 							self.CoM_pos[2] += 0.002
-						if event.code == 545:#down arrow
+						if event.code == 304:#down arrow - A
 							self.CoM_pos[2] -= 0.002
-						if event.code == 547:#right arrow
+						if event.code == 305:#right arrow - B
 							self.T += 0.05
-						if event.code == 546:#left arrow
+						if event.code == 306:#left arrow - X
 							self.T -= 0.05   
-						if event.code == 308:#square
+						if event.code == 313:#square - start
 							if self.compliantMode == True:
 								self.compliantMode = False
 							elif self.compliantMode == False:
 								self.compliantMode = True  
-						if event.code == 307:#triangle
+						if event.code == 312:#triangle - back
 							if self.poseMode == True:
 								self.poseMode = False
 							elif self.poseMode == False:
 								self.poseMode = True  
-						if event.code == 310:#R1
+						if event.code == 309:#R1 - RB
 							self.calibration += 5
 						# if event.code == 313:#R2
 						# 	self.calibration -= 0.0005                      
-						if event.code == 311:#L1
+						if event.code == 308:#L1 - LB
 							self.calibration -= 5
 						# if event.code == 312:#L2
 						# 	self.CoM_orn[0] += 0.0005
@@ -79,10 +79,10 @@ class Joystick:
 						self.L3[0]=absevent.event.value-127
 					elif ecodes.bytype[absevent.event.type][absevent.event.code] == "ABS_Y":
 						self.L3[1]=absevent.event.value-127
-					elif ecodes.bytype[absevent.event.type][absevent.event.code] == "ABS_RX":
+					elif ecodes.bytype[absevent.event.type][absevent.event.code] == "ABS_RZ":
 						self.R3[0]=absevent.event.value-127
 						# print(self.d_z)
-					elif ecodes.bytype[absevent.event.type][absevent.event.code] == "ABS_RY":
+					elif ecodes.bytype[absevent.event.type][absevent.event.code] == "ABS_Z":
 						self.R3[1]=absevent.event.value-127
 		
 		if self.poseMode == False:           

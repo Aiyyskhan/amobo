@@ -4,6 +4,8 @@
 Created on Sat Jul  4 14:51:58 2020
 
 @author: miguel-asd
+
+modified on Jan 08 2021 by Aiyyskhan
 """
 
 import numpy as np
@@ -20,14 +22,19 @@ robotKinematics = robotKinematics()
 arduino = ArduinoSerial('/dev/ttyACM0') #need to specify the serial port
 trot = trotGait() 
 control = stabilize()
-joystick = Joystick('/dev/input/event1') #need to specify the event route
+joystick = Joystick('/dev/input/event0') #need to specify the event route
 #robot properties
 """initial safe position"""
 #angles
-BR_angles = np.array([0 , 0 , -np.pi/2])#BR
-BL_angles = np.array([0 , 0 , -np.pi/2])#BL
-FL_angles = np.array([0 , 0 , -np.pi/2])#FL
-FR_angles = np.array([0 , 0 , -np.pi/2])#FR
+# BR_angles = np.array([0 , 0 , -np.pi/2])#BR
+# BL_angles = np.array([0 , 0 , -np.pi/2])#BL
+# FL_angles = np.array([0 , 0 , -np.pi/2])#FL
+# FR_angles = np.array([0 , 0 , -np.pi/2])#FR
+
+BR_angles = np.array([90 , 180 , 150])#BR
+BL_angles = np.array([90 , 0 , 30])#BL
+FL_angles = np.array([90 , 180 , 150])#FL
+FR_angles = np.array([90 , 0 , 30])#FR
 
 loopTime = 0.
 interval = 0.040

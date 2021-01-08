@@ -15,7 +15,7 @@ class ArduinoSerial:
 	#y en la funcion crea un string con el formato para la lectura.
 	#en la primera ejecucion hay que abrir el puerto
 	def __init__(self , port):
-		#ls -l /dev | grep ACM to identify serial port of the arduino
+		#ls -l /dev | grep ACM ls 
 		self.arduino = serial.Serial(port, 115200, timeout = 1)
 		# Nota: provocamos un reseteo manual de la placa para leer desde
 		# el principio

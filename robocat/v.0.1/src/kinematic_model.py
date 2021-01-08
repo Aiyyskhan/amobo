@@ -4,6 +4,8 @@
 Created on Thu Feb 27 15:21:52 2020
 
 @author: miguel-asd
+
+modified on Jan 08 2021 by Aiyyskhan
 """
 import numpy as np
 from src import IK_solver as IK
@@ -34,9 +36,9 @@ class robotKinematics:
 		"""in meter """
 		self.L = 0.193 #length of robot joints
 		self.W = 0.077 #width of robot joints
-		self.coxa = 0.05#coxa length
-		self.femur = 0.10#femur length
-		self.tibia = 0.10#tibia length
+		self.coxa = 0.055#coxa length
+		self.femur = 0.07#femur length
+		self.tibia = 0.11#tibia length
 		"""initial foot position"""
 		#foot separation (0.182 -> tetta=0) and distance to floor
 		self.Ydist = 0.11
@@ -78,10 +80,10 @@ class robotKinematics:
 		_BLcoord = geo.transform(BLcoord , undoOrn, undoPos)
 		
 		
-		FR_angles = IK.solve_R(_FRcoord , self.coxa , self.femur , self.tibia)
-		FL_angles = IK.solve_L(_FLcoord , self.coxa , self.femur , self.tibia)
-		BR_angles = IK.solve_R(_BRcoord , self.coxa , self.femur , self.tibia)
-		BL_angles = IK.solve_L(_BLcoord , self.coxa , self.femur , self.tibia)
+		FR_angles = IK.leg_FR(_FRcoord , self.coxa , self.femur , self.tibia)
+		FL_angles = IK.leg_FL(_FLcoord , self.coxa , self.femur , self.tibia)
+		BR_angles = IK.leg_BR(_BRcoord , self.coxa , self.femur , self.tibia)
+		BL_angles = IK.leg_BL(_BLcoord , self.coxa , self.femur , self.tibia)
 		
 		_bodytofeetFR = _bodytoFR0 + _FRcoord
 		_bodytofeetFL = _bodytoFL0 + _FLcoord

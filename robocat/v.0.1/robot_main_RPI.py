@@ -36,17 +36,17 @@ def update_data():
 
 
 robotKinematics = robotKinematics()
-joystick = Joystick('/dev/input/event1') #need to specify the event route
+joystick = Joystick('/dev/input/event0') #need to specify the event route
 arduino = ArduinoSerial('/dev/ttyACM0') #need to specify the serial port
 trot = trotGait() 
 control = stabilize()
 #robot properties
 """initial safe position"""
 #angles
-targetAngs = np.array([0 , np.pi/4 , -np.pi/2, 0 ,#BR
-						0 , np.pi/4 , -np.pi/2, 0 ,#BL
-						0 , np.pi/4 , -np.pi/2, 0 ,#FL
-						0 , np.pi/4 , -np.pi/2, 0 ])#FR
+targetAngs = np.array([90, 180, 150, 0 ,#BR
+						90, 0, 30, 0 ,#BL
+						90, 180, 150, 0 ,#FL
+						90, 0, 30, 0 ])#FR
 
 #FR_0  to FR_4 
 #FRcoord = np.matrix([0. , -3.6 , -0.15])

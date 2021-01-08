@@ -34,7 +34,7 @@ def leg_FR(coord, coxa_l, femur_l, tibia_l):
 	beta = np.rad2deg( (np.pi/2) - np.arctan(coord[0]/l1) - np.arccos((l2**2 + femur_l**2 - tibia_l**2)/(2 * l2 * femur_l)) )
 	gamma = np.rad2deg( np.arccos((femur_l**2 + tibia_l**2 - l2**2)/(2 * femur_l * tibia_l)) )
 
-	angles = numpy.array([alpha, beta, gamma])
+	angles = np.array([alpha, beta, gamma])
 
 	return angles
 
@@ -47,7 +47,7 @@ def leg_FL(coord, coxa_l, femur_l, tibia_l):
 	beta = np.rad2deg( (np.pi/2) + np.arctan(coord[0]/l1) + np.arccos((l2**2 + femur_l**2 - tibia_l**2)/(2 * l2 * femur_l)) )
 	gamma = np.rad2deg( np.pi - np.arccos((femur_l**2 + tibia_l**2 - l2**2)/(2 * femur_l * tibia_l)) )
 
-	angles = numpy.array([alpha, beta, gamma])
+	angles = np.array([alpha, beta, gamma])
 
 	return angles
 
@@ -63,7 +63,7 @@ def leg_BR(coord, coxa_l, femur_l, tibia_l):
 	beta = np.rad2deg( (np.pi/2) - np.arctan(coord[0]/l1) + np.arccos((l2**2 + femur_l**2 - tibia_l**2)/(2 * l2 * femur_l)) )
 	gamma = np.rad2deg( np.pi - np.arccos((femur_l**2 + tibia_l**2 - l2**2)/(2 * femur_l * tibia_l)) )
 
-	angles = numpy.array([alpha, beta, gamma])
+	angles = np.array([alpha, beta, gamma])
 
 	return angles
 
@@ -76,6 +76,6 @@ def leg_BL(coord, coxa_l, femur_l, tibia_l):
 	beta = np.rad2deg( (np.pi/2) + np.arctan(coord[0]/l1) - np.arccos((l2**2 + femur_l**2 - tibia_l**2)/(2 * l2 * femur_l)) )
 	gamma = np.rad2deg( np.arccos((femur_l**2 + tibia_l**2 - l2**2)/(2 * femur_l * tibia_l)) )
 
-	angles = numpy.array([alpha, beta, gamma])
+	angles = np.array([alpha, beta, gamma])
 
 	return angles

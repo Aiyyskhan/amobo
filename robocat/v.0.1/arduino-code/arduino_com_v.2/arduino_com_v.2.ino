@@ -29,9 +29,12 @@ int pulse0, pulse1, pulse2, pulse3, pulse4, pulse5, pulse6, pulse7, pulse8, puls
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
+
+  servosInitPos();
   
   IMUSetup();
   connectServos();
+  
 }
 
 void loop() {
@@ -56,6 +59,27 @@ void loop() {
     
     moveServos(pulse0, pulse1, pulse2, pulse3, pulse4, pulse5, pulse6, pulse7, pulse8, pulse9, pulse10, pulse11);
   }
+}
+
+void servosInitPos() {
+  // FR
+  pulse0 = map(90, 0, 180, MIN_PULSE, MAX_PULSE);
+  pulse1 = map(0, 0, 180, MIN_PULSE, MAX_PULSE);
+  pulse2 = map(30, 0, 180, MIN_PULSE, MAX_PULSE);
+  // FL
+  pulse3 = map(90, 0, 180, MIN_PULSE, MAX_PULSE);
+  pulse4 = map(180, 0, 180, MIN_PULSE, MAX_PULSE);
+  pulse5 = map(150, 0, 180, MIN_PULSE, MAX_PULSE);
+  // BR
+  pulse6 = map(90, 0, 180, MIN_PULSE, MAX_PULSE);
+  pulse7 = map(180, 0, 180, MIN_PULSE, MAX_PULSE);
+  pulse8 = map(150, 0, 180, MIN_PULSE, MAX_PULSE);
+  // BL
+  pulse9 = map(90, 0, 180, MIN_PULSE, MAX_PULSE);
+  pulse10 = map(0, 0, 180, MIN_PULSE, MAX_PULSE);
+  pulse11 = map(30, 0, 180, MIN_PULSE, MAX_PULSE);
+  
+  moveServos(pulse0, pulse1, pulse2, pulse3, pulse4, pulse5, pulse6, pulse7, pulse8, pulse9, pulse10, pulse11);
 }
 
 void connectServos() {
