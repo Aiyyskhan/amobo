@@ -12,4 +12,9 @@ public class Test : MonoBehaviourPunCallbacks
         PhotonNetwork.GameVersion = "0.1";
         PhotonNetwork.ConnectUsingSettings();
     }
+
+    public override void OnConnectedToMaster(){
+        Debug.Log("OnConnectedToMaster() was called by PUN.");
+        PhotonNetwork.JoinRandomRoom();
+    }
 }
