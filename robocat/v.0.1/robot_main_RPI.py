@@ -77,7 +77,7 @@ lastTime = startTime
 t = []
        
         
-T = 0.4 #period of time (in seconds) of every step
+T = 0.7 #period of time (in seconds) of every step
 offset = np.array([0. , 0.5 , 0.5 , 0.]) #defines the offset between each foot step in this order (FR,FL,BR,BL)
                                          # [0. , 0.25 , 0.75 , 0.5] creep gait
 interval = 0.030
