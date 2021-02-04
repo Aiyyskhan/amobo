@@ -22,7 +22,7 @@ class Joystick:
 		self.circle=0
 		self.square=0
 		
-		self.T = 0.4
+		self.T = 0.7
 		self.V = 0.
 		self.angle = 0.
 		self.Wrot = 0.
