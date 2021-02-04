@@ -20,17 +20,18 @@ from src.CoM_stabilization import stabilize
 
 ##This part of code is just to save the raw telemetry data.
 fieldnames = ["t","roll","pitch"]
-with open('telemetry/data.csv','w') as csv_file:
-    csv_writer = csv.DictWriter(csv_file,fieldnames = fieldnames)
-    csv_writer.writeheader()
+# with open('telemetry/data.csv','w') as csv_file:
+#     csv_writer = csv.DictWriter(csv_file,fieldnames = fieldnames)
+#     csv_writer.writeheader()
 
 def update_data():
-    with open('telemetry/data.csv','a') as csv_file:
-        csv_writer = csv.DictWriter(csv_file, fieldnames = fieldnames)
-        info = {"t" :  t,
-                "roll" : realRoll,
-                "pitch" : realPitch}
-        csv_writer.writerow(info)
+    pass
+    # with open('telemetry/data.csv','a') as csv_file:
+    #     csv_writer = csv.DictWriter(csv_file, fieldnames = fieldnames)
+    #     info = {"t" :  t,
+    #             "roll" : realRoll,
+    #             "pitch" : realPitch}
+    #     csv_writer.writerow(info)
 
 
 
